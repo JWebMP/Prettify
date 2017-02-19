@@ -1,0 +1,52 @@
+/* 
+ * Copyright (C) 2017 Marc Magon
+ *
+ * This program is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with this program.  If not, see <http://www.gnu.org/licenses/>.
+ */
+package za.co.mmagon.jwebswing.plugins.google.sourceprettify;
+
+import za.co.mmagon.jwebswing.Feature;
+import za.co.mmagon.jwebswing.base.html.interfaces.GlobalFeatures;
+import za.co.mmagon.jwebswing.base.references.CSSReference;
+import za.co.mmagon.jwebswing.base.references.JavascriptReference;
+import za.co.mmagon.jwebswing.htmlbuilder.javascript.JavaScriptPart;
+
+/**
+ * Implements the Google Prettify-It JQuery class
+ *
+ * @since 2014/06/06
+ * @author mmagon
+ */
+public class JQSourceCodePrettifyFeature extends Feature<JavaScriptPart, JQSourceCodePrettifyFeature> implements GlobalFeatures
+{
+
+    /**
+     * Constructs a source code displayer with the given PRE tag.
+     * <p>
+     * @param comp
+     */
+    public JQSourceCodePrettifyFeature(JQSourceCodePrettify comp)
+    {
+        super("JWSourceCodePrettify");
+        setComponent(comp);
+        getJavascriptReferences().add(new JavascriptReference("JQueryPrettify", 1.0, "bower_components/google-code-prettify/src/prettify.js"));//, "https://google-code-prettify.googlecode.com/svn/loader/prettify.js"));
+        getCssReferences().add(new CSSReference("JQueryPrettify", 1.0, "bower_components/google-code-prettify/src/prettify.css"));//, "https://google-code-prettify.googlecode.com/svn/loader/prettify.js"));
+    }
+
+    @Override
+    public void assignFunctionsToComponent()
+    {
+        addQuery("prettyPrint();" + getNewLine());
+    }
+}

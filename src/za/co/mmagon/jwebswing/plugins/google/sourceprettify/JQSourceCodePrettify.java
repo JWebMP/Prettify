@@ -21,6 +21,7 @@ import java.util.logging.*;
 import za.co.mmagon.jwebswing.base.html.*;
 import za.co.mmagon.jwebswing.base.html.interfaces.*;
 import za.co.mmagon.jwebswing.base.references.*;
+import za.co.mmagon.jwebswing.plugins.ComponentInformation;
 import za.co.mmagon.logger.LogFactory;
 
 /**
@@ -34,6 +35,8 @@ import za.co.mmagon.logger.LogFactory;
  *
  *
  */
+@ComponentInformation(name = "google-code-prettify ", description = "An embeddable script that makes source-code snippets in HTML prettier.",
+         url = "https://code.google.com/archive/p/google-code-prettify")
 public class JQSourceCodePrettify<J extends JQSourceCodePrettify> extends PreFormattedText<J> implements GlobalChildren
 {
 

@@ -1,4 +1,4 @@
-/* 
+/*
  * Copyright (C) 2017 Marc Magon
  *
  * This program is free software: you can redistribute it and/or modify
@@ -16,29 +16,29 @@
  */
 package za.co.mmagon.jwebswing.plugins.google.sourceprettify;
 
-import za.co.mmagon.logger.LogFactory;
 import java.io.*;
-import java.util.logging.*;
 import java.util.logging.*;
 import za.co.mmagon.jwebswing.base.html.*;
 import za.co.mmagon.jwebswing.base.html.interfaces.*;
 import za.co.mmagon.jwebswing.base.references.*;
+import za.co.mmagon.logger.LogFactory;
 
 /**
  *
  * Implements the Google Code Prettify JavaScript
  *
+ * @param <J>
  * @since 2014 09 28
  * @version 1.0
  * @author MMagon
  *
  *
  */
-public class JQSourceCodePrettify extends PreFormattedText implements GlobalChildren
+public class JQSourceCodePrettify<J extends JQSourceCodePrettify> extends PreFormattedText<J> implements GlobalChildren
 {
 
     private static final java.util.logging.Logger log = LogFactory.getInstance().getLogger("SourceCodePrettify");
-    private static final String rootSource = "c:/";
+    private static final String rootSource = "/";
     private static final long serialVersionUID = 1L;
 
     private SourceCodeLanguages sourceCodeLanguage = SourceCodeLanguages.Java;
@@ -162,11 +162,11 @@ public class JQSourceCodePrettify extends PreFormattedText implements GlobalChil
         }
         catch (FileNotFoundException ex)
         {
-            log.log(Level.SEVERE,"File Not Found ", ex);
+            log.log(Level.SEVERE, "File Not Found ", ex);
         }
         catch (IOException ex)
         {
-            log.log(Level.SEVERE,"IO Error reading file", ex);
+            log.log(Level.SEVERE, "IO Error reading file", ex);
         }
 
         return sb;

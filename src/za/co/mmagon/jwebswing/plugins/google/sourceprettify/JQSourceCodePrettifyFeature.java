@@ -1,4 +1,4 @@
-/* 
+/*
  * Copyright (C) 2017 Marc Magon
  *
  * This program is free software: you can redistribute it and/or modify
@@ -30,6 +30,8 @@ import za.co.mmagon.jwebswing.htmlbuilder.javascript.JavaScriptPart;
  */
 public class JQSourceCodePrettifyFeature extends Feature<JavaScriptPart, JQSourceCodePrettifyFeature> implements GlobalFeatures
 {
+
+    private static final long serialVersionUID = 1L;
 
     /**
      * Constructs a source code displayer with the given PRE tag.

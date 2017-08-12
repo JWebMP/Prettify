@@ -25,30 +25,31 @@ import za.co.mmagon.jwebswing.htmlbuilder.javascript.JavaScriptPart;
 /**
  * Implements the Google Prettify-It JQuery class
  *
- * @since 2014/06/06
  * @author mmagon
+ * @since 2014/06/06
  */
 public class JQSourceCodePrettifyFeature extends Feature<JavaScriptPart, JQSourceCodePrettifyFeature> implements GlobalFeatures
 {
 
-    private static final long serialVersionUID = 1L;
+	private static final long serialVersionUID = 1L;
 
-    /**
-     * Constructs a source code displayer with the given PRE tag.
-     * <p>
-     * @param comp
-     */
-    public JQSourceCodePrettifyFeature(JQSourceCodePrettify comp)
-    {
-        super("JWSourceCodePrettify");
-        setComponent(comp);
-        getJavascriptReferences().add(new JavascriptReference("JQueryPrettify", 1.0, "bower_components/google-code-prettify/src/prettify.js"));//, "https://google-code-prettify.googlecode.com/svn/loader/prettify.js"));
-        getCssReferences().add(new CSSReference("JQueryPrettify", 1.0, "bower_components/google-code-prettify/src/prettify.css"));//, "https://google-code-prettify.googlecode.com/svn/loader/prettify.js"));
-    }
+	/**
+	 * Constructs a source code displayer with the given PRE tag.
+	 * <p>
+	 *
+	 * @param comp
+	 */
+	public JQSourceCodePrettifyFeature(JQSourceCodePrettify comp)
+	{
+		super("JWSourceCodePrettify");
+		setComponent(comp);
+		getJavascriptReferences().add(new JavascriptReference("JQueryPrettify", 1.0, "bower_components/google-code-prettify/src/prettify.js"));//, "https://google-code-prettify.googlecode.com/svn/loader/prettify.js"));
+		getCssReferences().add(new CSSReference("JQueryPrettify", 1.0, "bower_components/google-code-prettify/src/prettify.css"));//, "https://google-code-prettify.googlecode.com/svn/loader/prettify.js"));
+	}
 
-    @Override
-    public void assignFunctionsToComponent()
-    {
-        addQuery("prettyPrint();" + getNewLine());
-    }
+	@Override
+	public void assignFunctionsToComponent()
+	{
+		addQuery("prettyPrint();" + getNewLine());
+	}
 }

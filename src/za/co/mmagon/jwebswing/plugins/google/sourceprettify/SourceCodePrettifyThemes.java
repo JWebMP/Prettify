@@ -22,41 +22,41 @@ import za.co.mmagon.jwebswing.utilities.TextUtilities;
  * /**
  * The themes available to the source code engine
  * <p>
+ *
  * @author GedMarc
  * @since 18 Dec 2014
  * <p>
- *
  */
 public enum SourceCodePrettifyThemes
 {
 
-    Default("bower_components/google-code-prettify/bin/prettify.min.css"),
-    Desert("bower_components/google-code-prettify/styles/desert.css"),
-    Doxy("bower_components/google-code-prettify/styles/doxy.css"),
-    Sons_Of_Obsidian("bower_components/google-code-prettify/styles/sons-of-obsidian.css"),
-    Sunburst("bower_components/google-code-prettify/styles/sunburst.css");
+	Default("bower_components/google-code-prettify/bin/prettify.min.css"),
+	Desert("bower_components/google-code-prettify/styles/desert.css"),
+	Doxy("bower_components/google-code-prettify/styles/doxy.css"),
+	Sons_Of_Obsidian("bower_components/google-code-prettify/styles/sons-of-obsidian.css"),
+	Sunburst("bower_components/google-code-prettify/styles/sunburst.css");
 
-    private final String cssReference;
+	private final String cssReference;
 
-    private SourceCodePrettifyThemes(String cssReference)
-    {
-        this.cssReference = cssReference;
-    }
+	private SourceCodePrettifyThemes(String cssReference)
+	{
+		this.cssReference = cssReference;
+	}
 
-    /**
-     * Returns the location of the theme CSS File
-     *
-     * @return The CSS Reference
-     */
-    public String getCssReference()
-    {
-        return cssReference;
-    }
+	/**
+	 * Returns the location of the theme CSS File
+	 *
+	 * @return The CSS Reference
+	 */
+	public String getCssReference()
+	{
+		return cssReference;
+	}
 
-    @Override
-    public String toString()
-    {
-        return TextUtilities.cleanAttributeName(name());
-    }
+	@Override
+	public String toString()
+	{
+		return TextUtilities.cleanAttributeName(name());
+	}
 
 }

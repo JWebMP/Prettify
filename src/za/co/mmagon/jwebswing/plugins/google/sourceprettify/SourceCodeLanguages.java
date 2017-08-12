@@ -19,15 +19,16 @@ package za.co.mmagon.jwebswing.plugins.google.sourceprettify;
 /**
  * The languages used for styling
  * <p>
+ *
  * @author GedMarc
  * @since 27 Apr 2015
  */
 public enum SourceCodeLanguages
 {
 
-    CSS,
-    HTML,
-    Java,
-    Python,
-    XML;
+	CSS,
+	HTML,
+	Java,
+	Python,
+	XML;
 }

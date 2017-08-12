@@ -17,6 +17,6 @@
     "tests"
   ],
   "dependencies": {
-	"google-code-prettify": "^1.0.5"
+    "google-code-prettify": "^1.0.5"
   }
 }

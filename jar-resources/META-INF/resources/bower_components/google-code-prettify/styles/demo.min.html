@@ -1,0 +1,56 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML//EN">
+<html>
+<head>
+    <script src="../src/prettify.js"></script>
+    <script src="../src/lang-css.js"></script>
+    <style>body {
+        margin: 0;
+        padding: 0
+    }
+
+    pre {
+        margin: 0
+    }</style>
+</head>
+<script>var themeName = decodeURIComponent(document.location.search.replace(/^\?/, ""));
+
+function adjustHeightInParent() {
+    if (parent !== window) {
+        try {
+            var b = document.body.getElementsByTagName("div")[0];
+            parent.adjustChildIframeSize(themeName, b.offsetWidth, b.offsetHeight)
+        } catch (a) {
+        }
+    }
+}
+
+(function () {
+    document.title = "Theme " + themeName;
+    var a = document.createElement("link");
+    a.rel = "stylesheet";
+    a.type = "text/css";
+    a.href = themeName === "default" ? "../src/prettify.css" : themeName + ".css";
+    document.getElementsByTagName("head")[0].appendChild(a)
+})();</script>
+<body onload="prettyPrint(); adjustHeightInParent()">
+<div style="width: 40em; display: inline-block"><pre class="prettyprint lang-html linenums">
+&lt;script type="text/javascript"&gt;
+// Say hello world until the user starts questioning
+// the meaningfulness of their existence.
+function helloWorld(world) {
+  for (var i = 42; --i &gt;= 0;) {
+    alert('Hello ' + String(world));
+  }
+}
+&lt;/script&gt;
+&lt;style&gt;
+p { color: pink }
+b { color: blue }
+u { color: "umber" }
+&lt;/style&gt;
+</pre>
+</div>
+</body>
+</html>
+
+

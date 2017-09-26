@@ -1,0 +1,68 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML//EN">
+<html>
+<head><title>Prettify Themes Gallery</title>
+    <style type="text/css">iframe {
+        width: 100%;
+        border-style: none;
+        margin: 0;
+        padding: 0
+    }</style>
+    <script>var allThemes = [{name: "default"}, {name: "desert", authorHtml: '<a href="http://code.google.com/u/@VhJeSlJYBhVMWgF7/">techto&hellip;@</a>'}, {
+        name: "sunburst",
+        authorHtml: "David Leibovic"
+    }, {name: "sons-of-obsidian", authorHtml: '<a href="http://CodeTunnel.com/blog/post/71/google-code-prettify-obsidian-theme">Alex Ford</a>'}, {name: "doxy", authorHtml: "Robert Sperberg"},];
+
+    function adjustChildIframeSize(f, e, a) {
+        if (typeof console != "undefined") {
+            try {
+                console.log("adjusting " + f + " to " + e + "x" + a)
+            } catch (c) {
+            }
+        }
+        var b = document.getElementById(f).parentNode;
+        b.style.width = (+e + 16) + "px";
+        b.style.display = "inline-block";
+        var d = b.getElementsByTagName("iframe")[0];
+        d.style.height = (+a + 16) + "px"
+    }</script>
+</head>
+<body>
+<noscript>This page requires JavaScript</noscript>
+<h1>Gallery of themes for <a href="http://code.google.com/p/google-code-prettify/">code prettify</a></h1>
+<p> Click on a theme name for a link to the file in revision control. Print preview this page to see how the themes work on the printed page. </p>
+<script>(function () {
+    for (var b = 0, h = allThemes.length; b < h; ++b) {
+        var e = allThemes[b];
+        if (!e) {
+            continue
+        }
+        var c = document.createElement("iframe");
+        c.name = e.name;
+        c.src = "demo.html?" + encodeURIComponent(e.name);
+        var g = document.createElement("h2");
+        g.id = e.name;
+        var d = document.createElement("a");
+        d.href = ("http://code.google.com/p/google-code-prettify/source/browse/trunk/" + (e.name === "default" ? "src/prettify.css" : "styles/" + encodeURIComponent(e.name) + ".css"));
+        d.appendChild(document.createTextNode(e.name.replace(/\b[a-z]/g, function (i) {
+            return i.toUpperCase()
+        })));
+        g.appendChild(d);
+        var a;
+        if (e.authorHtml) {
+            a = document.createElement("span");
+            a.className = "attribution";
+            a.innerHTML = "by " + e.authorHtml
+        }
+        var f = document.createElement("div");
+        f.appendChild(g);
+        if (a) {
+            f.appendChild(a)
+        }
+        f.appendChild(c);
+        document.body.appendChild(f)
+    }
+})();</script>
+</body>
+</html>
+
+

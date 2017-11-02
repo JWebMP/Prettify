@@ -40,6 +40,7 @@ import za.co.mmagon.jwebswing.plugins.PluginInformation;
 		pluginIconImageUrl = "bower_components/google-code-prettify/google_prettify_example.jpg",
 		pluginLastUpdatedDate = "2017/03/04"
 )
+@SuppressWarnings("unused")
 public class JQSourceCodePrettifyPageConfigurator extends PageConfigurator
 {
 
@@ -47,7 +48,7 @@ public class JQSourceCodePrettifyPageConfigurator extends PageConfigurator
 
 	public JQSourceCodePrettifyPageConfigurator()
 	{
-
+		//No config needed
 	}
 
 	@Override

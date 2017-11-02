@@ -20,6 +20,7 @@ import za.co.mmagon.jwebswing.base.html.PreFormattedText;
 import za.co.mmagon.jwebswing.base.html.interfaces.GlobalChildren;
 import za.co.mmagon.jwebswing.base.references.CSSReference;
 import za.co.mmagon.jwebswing.plugins.ComponentInformation;
+import za.co.mmagon.jwebswing.utilities.StaticStrings;
 import za.co.mmagon.logger.LogFactory;
 
 import java.io.*;
@@ -115,7 +116,8 @@ public class JQSourceCodePrettify<J extends JQSourceCodePrettify<J>> extends Pre
 	/**
 	 * Sets the displaying theme that this feature will use
 	 *
-	 * @param theme The theme to use
+	 * @param theme
+	 * 		The theme to use
 	 */
 	public final void setTheme(SourceCodePrettifyThemes theme)
 	{
@@ -139,28 +141,21 @@ public class JQSourceCodePrettify<J extends JQSourceCodePrettify<J>> extends Pre
 		File file = new File(fileName);
 		if (!file.exists())
 		{
-			Logger.getLogger("fileToString").log(Level.SEVERE, "Couldn''t find java file [{0}]", fileName);
-			// return new StringBuilder("Couldn't find java file [" + fileName + "]");
+			Logger.getLogger("fileToString").log(Level.SEVERE, "Couldn't find java file [{0}]", fileName);
 		}
 
 		StringBuilder sb = new StringBuilder();
-		try
+		try (FileReader fr = new FileReader(file); BufferedReader br = new BufferedReader(fr))
 		{
-			try (FileReader fr = new FileReader(file); BufferedReader br = new BufferedReader(fr))
+			String line = br.readLine();
+			while (line != null)
 			{
-				String line = br.readLine();
-				while (line != null)
+				if (!line.startsWith("import"))
 				{
-					if (!line.startsWith("import"))
-					{
-						sb.append(line).append("\n");
-					}
-					line = br.readLine();
+					sb.append(line).append(StaticStrings.STRING_NEWLINE_TEXT);
 				}
-				fr.close();
-				br.close();
+				line = br.readLine();
 			}
-
 		}
 		catch (FileNotFoundException ex)
 		{
@@ -174,4 +169,42 @@ public class JQSourceCodePrettify<J extends JQSourceCodePrettify<J>> extends Pre
 		return sb;
 	}
 
+	@Override
+	public boolean equals(Object o)
+	{
+		if (this == o)
+		{
+			return true;
+		}
+		if (o == null || getClass() != o.getClass())
+		{
+			return false;
+		}
+		if (!super.equals(o))
+		{
+			return false;
+		}
+
+		JQSourceCodePrettify<?> that = (JQSourceCodePrettify<?>) o;
+
+		if (!feature.equals(that.feature))
+		{
+			return false;
+		}
+		if (getSourceCodeLanguage() != that.getSourceCodeLanguage())
+		{
+			return false;
+		}
+		return getSourceCodePrettifyTheme() == that.getSourceCodePrettifyTheme();
+	}
+
+	@Override
+	public int hashCode()
+	{
+		int result = super.hashCode();
+		result = 31 * result + feature.hashCode();
+		result = 31 * result + getSourceCodeLanguage().hashCode();
+		result = 31 * result + getSourceCodePrettifyTheme().hashCode();
+		return result;
+	}
 }

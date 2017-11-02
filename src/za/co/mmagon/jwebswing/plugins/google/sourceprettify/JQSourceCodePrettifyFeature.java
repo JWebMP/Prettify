@@ -43,8 +43,8 @@ public class JQSourceCodePrettifyFeature extends Feature<JavaScriptPart, JQSourc
 	{
 		super("JWSourceCodePrettify");
 		setComponent(comp);
-		getJavascriptReferences().add(new JavascriptReference("JQueryPrettify", 1.0, "bower_components/google-code-prettify/src/prettify.js"));//, "https://google-code-prettify.googlecode.com/svn/loader/prettify.js"));
-		getCssReferences().add(new CSSReference("JQueryPrettify", 1.0, "bower_components/google-code-prettify/src/prettify.css"));//, "https://google-code-prettify.googlecode.com/svn/loader/prettify.js"));
+		getJavascriptReferences().add(new JavascriptReference("JQueryPrettify", 1.0, "bower_components/google-code-prettify/src/prettify.js"));
+		getCssReferences().add(new CSSReference("JQueryPrettify", 1.0, "bower_components/google-code-prettify/src/prettify.css"));
 	}
 
 	@Override

@@ -137,7 +137,7 @@ public class JQSourceCodePrettify<J extends JQSourceCodePrettify<J>> extends Pre
 	 */
 	public StringBuilder fileToString(Class classToRender)
 	{
-		String fileName = rootSource + classToRender.getCanonicalName().replace('.', '\\').replace("/", "\\") + ".java" + "?format=raw";
+		String fileName = rootSource + classToRender.getCanonicalName().replace(StaticStrings.CHAR_DOT, '\\').replace("/", "\\") + ".java" + "?format=raw";
 		File file = new File(fileName);
 		if (!file.exists())
 		{

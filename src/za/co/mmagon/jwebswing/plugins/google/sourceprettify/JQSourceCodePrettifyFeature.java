@@ -1,4 +1,4 @@
-/* 
+/*
  * Copyright (C) 2017 Marc Magon
  *
  * This program is free software: you can redistribute it and/or modify
@@ -18,8 +18,6 @@ package za.co.mmagon.jwebswing.plugins.google.sourceprettify;
 
 import za.co.mmagon.jwebswing.Feature;
 import za.co.mmagon.jwebswing.base.html.interfaces.GlobalFeatures;
-import za.co.mmagon.jwebswing.base.references.CSSReference;
-import za.co.mmagon.jwebswing.base.references.JavascriptReference;
 import za.co.mmagon.jwebswing.htmlbuilder.javascript.JavaScriptPart;
 
 /**
@@ -28,7 +26,9 @@ import za.co.mmagon.jwebswing.htmlbuilder.javascript.JavaScriptPart;
  * @author mmagon
  * @since 2014/06/06
  */
-public class JQSourceCodePrettifyFeature extends Feature<JavaScriptPart, JQSourceCodePrettifyFeature> implements GlobalFeatures
+public class JQSourceCodePrettifyFeature
+		extends Feature<JavaScriptPart, JQSourceCodePrettifyFeature>
+		implements GlobalFeatures
 {
 
 	private static final long serialVersionUID = 1L;
@@ -43,8 +43,6 @@ public class JQSourceCodePrettifyFeature extends Feature<JavaScriptPart, JQSourc
 	{
 		super("JWSourceCodePrettify");
 		setComponent(comp);
-		getJavascriptReferences().add(new JavascriptReference("JQueryPrettify", 1.0, "bower_components/google-code-prettify/src/prettify.js"));
-		getCssReferences().add(new CSSReference("JQueryPrettify", 1.0, "bower_components/google-code-prettify/src/prettify.css"));
 	}
 
 	@Override

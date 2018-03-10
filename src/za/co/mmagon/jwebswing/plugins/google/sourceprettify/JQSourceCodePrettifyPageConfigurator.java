@@ -1,4 +1,4 @@
-/* 
+/*
  * Copyright (C) 2017 Marc Magon
  *
  * This program is free software: you can redistribute it and/or modify
@@ -18,6 +18,8 @@ package za.co.mmagon.jwebswing.plugins.google.sourceprettify;
 
 import za.co.mmagon.jwebswing.Page;
 import za.co.mmagon.jwebswing.PageConfigurator;
+import za.co.mmagon.jwebswing.base.references.CSSReference;
+import za.co.mmagon.jwebswing.base.references.JavascriptReference;
 import za.co.mmagon.jwebswing.plugins.PluginInformation;
 
 /**
@@ -38,10 +40,10 @@ import za.co.mmagon.jwebswing.plugins.PluginInformation;
 		pluginDownloadUrl = "https://sourceforge.net/projects/jwebswing/files/plugins/GoogleSourceCodePrettifyPlugin.jar/download",
 		pluginIconUrl = "bower_components/google-code-prettify/icon.gif",
 		pluginIconImageUrl = "bower_components/google-code-prettify/google_prettify_example.jpg",
-		pluginLastUpdatedDate = "2017/03/04"
-)
+		pluginLastUpdatedDate = "2017/03/04")
 @SuppressWarnings("unused")
-public class JQSourceCodePrettifyPageConfigurator extends PageConfigurator
+public class JQSourceCodePrettifyPageConfigurator
+		extends PageConfigurator
 {
 
 	private static final long serialVersionUID = 1L;
@@ -54,6 +56,15 @@ public class JQSourceCodePrettifyPageConfigurator extends PageConfigurator
 	@Override
 	public Page configure(Page page)
 	{
+		if (!page.isConfigured())
+		{
+			page.getBody()
+			    .getJavascriptReferences()
+			    .add(new JavascriptReference("JQueryPrettify", 1.0, "bower_components/google-code-prettify/src/prettify.js"));
+			page.getBody()
+			    .getCssReferences()
+			    .add(new CSSReference("JQueryPrettify", 1.0, "bower_components/google-code-prettify/src/prettify.css"));
+		}
 		return page;
 	}
 

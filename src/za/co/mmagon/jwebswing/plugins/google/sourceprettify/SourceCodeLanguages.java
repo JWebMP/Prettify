@@ -1,4 +1,4 @@
-/* 
+/*
  * Copyright (C) 2017 Marc Magon
  *
  * This program is free software: you can redistribute it and/or modify
@@ -25,10 +25,39 @@ package za.co.mmagon.jwebswing.plugins.google.sourceprettify;
  */
 public enum SourceCodeLanguages
 {
-
+	Apollo,
+	Bash,
+	Basic,
+	CLJ,
+	Dart,
+	Erlang,
+	Go,
+	Lisp,
+	HS,
+	JS,
+	Livm,
+	Lua,
+	Matlab,
+	Ml,
+	Mumps,
+	N,
+	Pascal,
+	Proto,
+	R,
+	Rd,
+	Scala,
+	Sql,
+	TCL,
+	Tex,
+	VB,
+	VHDL,
+	Wiki,
+	Xq,
+	Yaml,
 	CSS,
 	HTML,
 	Java,
 	Python,
-	XML;
+	XML,
+	XSL
 }

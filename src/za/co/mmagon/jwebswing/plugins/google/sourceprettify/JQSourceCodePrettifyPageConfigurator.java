@@ -18,7 +18,6 @@ package za.co.mmagon.jwebswing.plugins.google.sourceprettify;
 
 import za.co.mmagon.jwebswing.Page;
 import za.co.mmagon.jwebswing.PageConfigurator;
-import za.co.mmagon.jwebswing.base.references.CSSReference;
 import za.co.mmagon.jwebswing.base.references.JavascriptReference;
 import za.co.mmagon.jwebswing.plugins.PluginInformation;
 
@@ -48,9 +47,21 @@ public class JQSourceCodePrettifyPageConfigurator
 
 	private static final long serialVersionUID = 1L;
 
+	private static SourceCodePrettifyThemes theme = SourceCodePrettifyThemes.Default;
+
 	public JQSourceCodePrettifyPageConfigurator()
 	{
 		//No config needed
+	}
+
+	public static SourceCodePrettifyThemes getTheme()
+	{
+		return theme;
+	}
+
+	public static void setTheme(SourceCodePrettifyThemes theme)
+	{
+		JQSourceCodePrettifyPageConfigurator.theme = theme;
 	}
 
 	@Override
@@ -63,9 +74,8 @@ public class JQSourceCodePrettifyPageConfigurator
 			    .add(new JavascriptReference("JQueryPrettify", 1.0, "bower_components/google-code-prettify/src/prettify.js"));
 			page.getBody()
 			    .getCssReferences()
-			    .add(new CSSReference("JQueryPrettify", 1.0, "bower_components/google-code-prettify/src/prettify.css"));
+			    .add(theme.getCssReference());
 		}
 		return page;
 	}
-
 }

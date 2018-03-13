@@ -1,4 +1,4 @@
-/* 
+/*
  * Copyright (C) 2017 Marc Magon
  *
  * This program is free software: you can redistribute it and/or modify
@@ -16,6 +16,7 @@
  */
 package za.co.mmagon.jwebswing.plugins.google.sourceprettify;
 
+import za.co.mmagon.jwebswing.base.references.CSSReference;
 import za.co.mmagon.jwebswing.utilities.TextUtilities;
 
 /**
@@ -25,7 +26,7 @@ import za.co.mmagon.jwebswing.utilities.TextUtilities;
  *
  * @author GedMarc
  * @since 18 Dec 2014
- * <p>
+ * 		<p>
  */
 public enum SourceCodePrettifyThemes
 {
@@ -38,7 +39,7 @@ public enum SourceCodePrettifyThemes
 
 	private final String cssReference;
 
-	private SourceCodePrettifyThemes(String cssReference)
+	SourceCodePrettifyThemes(String cssReference)
 	{
 		this.cssReference = cssReference;
 	}
@@ -48,9 +49,9 @@ public enum SourceCodePrettifyThemes
 	 *
 	 * @return The CSS Reference
 	 */
-	public String getCssReference()
+	public CSSReference getCssReference()
 	{
-		return cssReference;
+		return new CSSReference("theme" + name() + "prettify", 1.0, cssReference).setSpecifiedClassName("prettifytheme");
 	}
 
 	@Override

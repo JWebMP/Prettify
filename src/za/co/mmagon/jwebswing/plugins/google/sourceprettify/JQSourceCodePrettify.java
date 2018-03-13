@@ -18,11 +18,11 @@ package za.co.mmagon.jwebswing.plugins.google.sourceprettify;
 
 import za.co.mmagon.jwebswing.base.html.PreFormattedText;
 import za.co.mmagon.jwebswing.base.html.interfaces.GlobalChildren;
-import za.co.mmagon.jwebswing.base.references.CSSReference;
 import za.co.mmagon.jwebswing.plugins.ComponentInformation;
 import za.co.mmagon.jwebswing.utilities.StaticStrings;
 import za.co.mmagon.logger.LogFactory;
 
+import javax.validation.constraints.NotNull;
 import java.io.*;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -36,12 +36,16 @@ import java.util.logging.Logger;
  * @version 1.0
  * @since 2014 09 28
  */
-@ComponentInformation(name = "google-code-prettify ", description = "An embeddable script that makes source-code snippets in HTML prettier.",
+@ComponentInformation(name = "google-code-prettify ",
+		description = "An embeddable script that makes source-code snippets in HTML prettier.",
 		url = "https://code.google.com/archive/p/google-code-prettify")
-public class JQSourceCodePrettify<J extends JQSourceCodePrettify<J>> extends PreFormattedText<J> implements GlobalChildren
+public class JQSourceCodePrettify<J extends JQSourceCodePrettify<J>>
+		extends PreFormattedText<J>
+		implements GlobalChildren
 {
 
-	private static final java.util.logging.Logger log = LogFactory.getInstance().getLogger("SourceCodePrettify");
+	private static final java.util.logging.Logger log = LogFactory.getInstance()
+	                                                              .getLogger("SourceCodePrettify");
 	private static final String rootSource = "/";
 	private static final long serialVersionUID = 1L;
 	private final JQSourceCodePrettifyFeature feature = new JQSourceCodePrettifyFeature(this);
@@ -65,7 +69,12 @@ public class JQSourceCodePrettify<J extends JQSourceCodePrettify<J>> extends Pre
 	protected StringBuilder renderBeforeTag()
 	{
 		StringBuilder sb = new StringBuilder();
-		sb.append(getCurrentTabIndentString()).append("<?prettify lang=").append(getSourceCodeLanguage().name().toLowerCase()).append(" linenums=true?>").append(getNewLine());
+		sb.append(getCurrentTabIndentString())
+		  .append("<?prettify lang=")
+		  .append(getSourceCodeLanguage().name()
+		                                 .toLowerCase())
+		  .append(" linenums=true?>")
+		  .append(getNewLine());
 		return sb;
 	}
 
@@ -84,9 +93,12 @@ public class JQSourceCodePrettify<J extends JQSourceCodePrettify<J>> extends Pre
 	 *
 	 * @param sourceCodeLanguage
 	 */
-	public void setSourceCodeLanguage(SourceCodeLanguages sourceCodeLanguage)
+	@SuppressWarnings("unchecked")
+	@NotNull
+	public J setSourceCodeLanguage(SourceCodeLanguages sourceCodeLanguage)
 	{
 		this.sourceCodeLanguage = sourceCodeLanguage;
+		return (J) this;
 	}
 
 	/**
@@ -99,19 +111,6 @@ public class JQSourceCodePrettify<J extends JQSourceCodePrettify<J>> extends Pre
 		return sourceCodePrettifyTheme;
 	}
 
-	/**
-	 * Sets this source code display to a prettify theme
-	 *
-	 * @param sourceCodePrettifyTheme
-	 */
-	public void setSourceCodePrettifyTheme(SourceCodePrettifyThemes sourceCodePrettifyTheme)
-	{
-		this.sourceCodePrettifyTheme = sourceCodePrettifyTheme;
-		if (sourceCodePrettifyTheme != null)
-		{
-			feature.getCssReferences().add(new CSSReference("prettifyTheme", 1.0, sourceCodePrettifyTheme.getCssReference()));
-		}
-	}
 
 	/**
 	 * Sets the displaying theme that this feature will use
@@ -119,13 +118,16 @@ public class JQSourceCodePrettify<J extends JQSourceCodePrettify<J>> extends Pre
 	 * @param theme
 	 * 		The theme to use
 	 */
-	public final void setTheme(SourceCodePrettifyThemes theme)
+	@SuppressWarnings("unchecked")
+	@NotNull
+	public final J setTheme(SourceCodePrettifyThemes theme)
 	{
-		this.sourceCodePrettifyTheme = theme;
-		if (this.sourceCodePrettifyTheme != null)
+		sourceCodePrettifyTheme = theme;
+		if (sourceCodePrettifyTheme != null)
 		{
-			getCssReferences().add(new CSSReference(theme.name(), 1.0, theme.getCssReference(), theme.getCssReference()));
+			addCssReference(theme.getCssReference());
 		}
+		return (J) this;
 	}
 
 	/**
@@ -137,11 +139,14 @@ public class JQSourceCodePrettify<J extends JQSourceCodePrettify<J>> extends Pre
 	 */
 	public StringBuilder fileToString(Class classToRender)
 	{
-		String fileName = rootSource + classToRender.getCanonicalName().replace(StaticStrings.CHAR_DOT, '\\').replace("/", "\\") + ".java" + "?format=raw";
+		String fileName = rootSource + classToRender.getCanonicalName()
+		                                            .replace(StaticStrings.CHAR_DOT, '\\')
+		                                            .replace("/", "\\") + ".java" + "?format=raw";
 		File file = new File(fileName);
 		if (!file.exists())
 		{
-			Logger.getLogger("fileToString").log(Level.SEVERE, "Couldn't find java file [{0}]", fileName);
+			Logger.getLogger("fileToString")
+			      .log(Level.SEVERE, "Couldn't find java file [{0}]", fileName);
 		}
 
 		StringBuilder sb = new StringBuilder();
@@ -152,7 +157,8 @@ public class JQSourceCodePrettify<J extends JQSourceCodePrettify<J>> extends Pre
 			{
 				if (!line.startsWith("import"))
 				{
-					sb.append(line).append(StaticStrings.STRING_NEWLINE_TEXT);
+					sb.append(line)
+					  .append(StaticStrings.STRING_NEWLINE_TEXT);
 				}
 				line = br.readLine();
 			}
@@ -172,39 +178,12 @@ public class JQSourceCodePrettify<J extends JQSourceCodePrettify<J>> extends Pre
 	@Override
 	public boolean equals(Object o)
 	{
-		if (this == o)
-		{
-			return true;
-		}
-		if (o == null || getClass() != o.getClass())
-		{
-			return false;
-		}
-		if (!super.equals(o))
-		{
-			return false;
-		}
-
-		JQSourceCodePrettify<?> that = (JQSourceCodePrettify<?>) o;
-
-		if (!feature.equals(that.feature))
-		{
-			return false;
-		}
-		if (getSourceCodeLanguage() != that.getSourceCodeLanguage())
-		{
-			return false;
-		}
-		return getSourceCodePrettifyTheme() == that.getSourceCodePrettifyTheme();
+		return super.equals(o);
 	}
 
 	@Override
 	public int hashCode()
 	{
-		int result = super.hashCode();
-		result = 31 * result + feature.hashCode();
-		result = 31 * result + getSourceCodeLanguage().hashCode();
-		result = 31 * result + getSourceCodePrettifyTheme().hashCode();
-		return result;
+		return super.hashCode();
 	}
 }

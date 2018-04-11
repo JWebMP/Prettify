@@ -19,13 +19,9 @@ package za.co.mmagon.jwebswing.plugins.google.sourceprettify;
 import za.co.mmagon.jwebswing.base.html.PreFormattedText;
 import za.co.mmagon.jwebswing.base.html.interfaces.GlobalChildren;
 import za.co.mmagon.jwebswing.plugins.ComponentInformation;
-import za.co.mmagon.jwebswing.utilities.StaticStrings;
 import za.co.mmagon.logger.LogFactory;
 
 import javax.validation.constraints.NotNull;
-import java.io.*;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 /**
  * Implements the Google Code Prettify JavaScript
@@ -52,6 +48,8 @@ public class JQSourceCodePrettify<J extends JQSourceCodePrettify<J>>
 	private SourceCodeLanguages sourceCodeLanguage = SourceCodeLanguages.Java;
 	private SourceCodePrettifyThemes sourceCodePrettifyTheme = SourceCodePrettifyThemes.Default;
 
+	private boolean showLineNums;
+
 	/**
 	 * Constructs a new Source Code Prettify
 	 */
@@ -72,9 +70,13 @@ public class JQSourceCodePrettify<J extends JQSourceCodePrettify<J>>
 		sb.append(getCurrentTabIndentString())
 		  .append("<?prettify lang=")
 		  .append(getSourceCodeLanguage().name()
-		                                 .toLowerCase())
-		  .append(" linenums=true?>")
-		  .append(getNewLine());
+		                                 .toLowerCase());
+		if (isShowLineNums())
+		{
+			sb.append(" linenums=true");
+		}
+		sb.append("?>");
+		sb.append(getNewLine());
 		return sb;
 	}
 
@@ -102,6 +104,29 @@ public class JQSourceCodePrettify<J extends JQSourceCodePrettify<J>>
 	}
 
 	/**
+	 * If line numbers must be shown
+	 *
+	 * @return
+	 */
+	public boolean isShowLineNums()
+	{
+		return showLineNums;
+	}
+
+	/**
+	 * Showing the line numbers
+	 *
+	 * @param showLineNums
+	 *
+	 * @return
+	 */
+	public J setShowLineNums(boolean showLineNums)
+	{
+		this.showLineNums = showLineNums;
+		return (J) this;
+	}
+
+	/**
 	 * Returns the current theme in place. Default is Sons of Obsidion
 	 *
 	 * @return
@@ -110,7 +135,6 @@ public class JQSourceCodePrettify<J extends JQSourceCodePrettify<J>>
 	{
 		return sourceCodePrettifyTheme;
 	}
-
 
 	/**
 	 * Sets the displaying theme that this feature will use
@@ -128,51 +152,6 @@ public class JQSourceCodePrettify<J extends JQSourceCodePrettify<J>>
 			addCssReference(theme.getCssReference());
 		}
 		return (J) this;
-	}
-
-	/**
-	 * Takes a physical file to a string for display
-	 *
-	 * @param classToRender
-	 *
-	 * @return
-	 */
-	public StringBuilder fileToString(Class classToRender)
-	{
-		String fileName = rootSource + classToRender.getCanonicalName()
-		                                            .replace(StaticStrings.CHAR_DOT, '\\')
-		                                            .replace("/", "\\") + ".java" + "?format=raw";
-		File file = new File(fileName);
-		if (!file.exists())
-		{
-			Logger.getLogger("fileToString")
-			      .log(Level.SEVERE, "Couldn't find java file [{0}]", fileName);
-		}
-
-		StringBuilder sb = new StringBuilder();
-		try (FileReader fr = new FileReader(file); BufferedReader br = new BufferedReader(fr))
-		{
-			String line = br.readLine();
-			while (line != null)
-			{
-				if (!line.startsWith("import"))
-				{
-					sb.append(line)
-					  .append(StaticStrings.STRING_NEWLINE_TEXT);
-				}
-				line = br.readLine();
-			}
-		}
-		catch (FileNotFoundException ex)
-		{
-			log.log(Level.SEVERE, "File Not Found ", ex);
-		}
-		catch (IOException ex)
-		{
-			log.log(Level.SEVERE, "IO Error reading file", ex);
-		}
-
-		return sb;
 	}
 
 	@Override

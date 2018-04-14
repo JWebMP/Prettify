@@ -1,4 +1,4 @@
-/* 
+/*
  * Copyright (C) 2017 Marc Magon
  *
  * This program is free software: you can redistribute it and/or modify
@@ -14,4 +14,50 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-package za.co.mmagon.jwebswing.plugins.google.sourceprettify;
+package com.jwebmp.plugins.google.sourceprettify;
+
+/**
+ * The languages used for styling
+ * <p>
+ *
+ * @author GedMarc
+ * @since 27 Apr 2015
+ */
+public enum SourceCodeLanguages
+{
+	Apollo,
+	Bash,
+	Basic,
+	CLJ,
+	Dart,
+	Erlang,
+	Go,
+	Lisp,
+	HS,
+	JS,
+	Livm,
+	Lua,
+	Matlab,
+	Ml,
+	Mumps,
+	N,
+	Pascal,
+	Proto,
+	R,
+	Rd,
+	Scala,
+	Sql,
+	TCL,
+	Tex,
+	VB,
+	VHDL,
+	Wiki,
+	Xq,
+	Yaml,
+	CSS,
+	HTML,
+	Java,
+	Python,
+	XML,
+	XSL
+}

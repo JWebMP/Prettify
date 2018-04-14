@@ -14,11 +14,11 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-package za.co.mmagon.jwebswing.plugins.google.sourceprettify;
+package com.jwebmp.plugins.google.sourceprettify;
 
-import za.co.mmagon.jwebswing.base.html.PreFormattedText;
-import za.co.mmagon.jwebswing.base.html.interfaces.GlobalChildren;
-import za.co.mmagon.jwebswing.plugins.ComponentInformation;
+import com.jwebmp.base.html.PreFormattedText;
+import com.jwebmp.base.html.interfaces.GlobalChildren;
+import com.jwebmp.plugins.ComponentInformation;
 import za.co.mmagon.logger.LogFactory;
 
 import javax.validation.constraints.NotNull;
@@ -155,14 +155,14 @@ public class JQSourceCodePrettify<J extends JQSourceCodePrettify<J>>
 	}
 
 	@Override
-	public boolean equals(Object o)
-	{
-		return super.equals(o);
-	}
-
-	@Override
 	public int hashCode()
 	{
 		return super.hashCode();
+	}
+
+	@Override
+	public boolean equals(Object o)
+	{
+		return super.equals(o);
 	}
 }

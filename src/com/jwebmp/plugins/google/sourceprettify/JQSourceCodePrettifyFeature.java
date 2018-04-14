@@ -14,11 +14,11 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-package za.co.mmagon.jwebswing.plugins.google.sourceprettify;
+package com.jwebmp.plugins.google.sourceprettify;
 
-import za.co.mmagon.jwebswing.Feature;
-import za.co.mmagon.jwebswing.base.html.interfaces.GlobalFeatures;
-import za.co.mmagon.jwebswing.htmlbuilder.javascript.JavaScriptPart;
+import com.jwebmp.Feature;
+import com.jwebmp.base.html.interfaces.GlobalFeatures;
+import com.jwebmp.htmlbuilder.javascript.JavaScriptPart;
 
 /**
  * Implements the Google Prettify-It JQuery class

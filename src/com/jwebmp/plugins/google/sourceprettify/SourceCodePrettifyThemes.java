@@ -14,10 +14,10 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-package za.co.mmagon.jwebswing.plugins.google.sourceprettify;
+package com.jwebmp.plugins.google.sourceprettify;
 
-import za.co.mmagon.jwebswing.base.references.CSSReference;
-import za.co.mmagon.jwebswing.utilities.TextUtilities;
+import com.jwebmp.base.references.CSSReference;
+import com.jwebmp.utilities.TextUtilities;
 
 /**
  * /**

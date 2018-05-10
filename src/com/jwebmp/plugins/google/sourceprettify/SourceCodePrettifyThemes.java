@@ -32,11 +32,11 @@ public enum SourceCodePrettifyThemes
 {
 
 	Default("bower_components/google-code-prettify/bin/prettify.min.css"),
-	Desert("bower_components/google-code-prettify/styles/desert.css"),
-	Doxy("bower_components/google-code-prettify/styles/doxy.css"),
-	Sons_Of_Obsidian("bower_components/google-code-prettify/styles/sons-of-obsidian.css"),
-	Sons_Of_Obsidian_Fixed_BG("bower_components/google-code-prettify/styles/sons-of-obsidian-fixed-background.css"),
-	Sunburst("bower_components/google-code-prettify/styles/sunburst.css");
+	Desert("bower_components/google-code-prettify/styles/desert.min.css"),
+	Doxy("bower_components/google-code-prettify/styles/doxy.min.css"),
+	Sons_Of_Obsidian("bower_components/google-code-prettify/styles/sons-of-obsidian.min.css"),
+	Sons_Of_Obsidian_Fixed_BG("bower_components/google-code-prettify/styles/sons-of-obsidian-fixed-background.min.css"),
+	Sunburst("bower_components/google-code-prettify/styles/sunburst.min.css");
 
 	private final String cssReference;
 

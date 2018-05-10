@@ -71,7 +71,7 @@ public class JQSourceCodePrettifyPageConfigurator
 		{
 			page.getBody()
 			    .getJavascriptReferences()
-			    .add(new JavascriptReference("JQueryPrettify", 1.0, "bower_components/google-code-prettify/src/prettify.js"));
+			    .add(new JavascriptReference("JQueryPrettify", 1.0, "bower_components/google-code-prettify/src/prettify.min.js"));
 			page.getBody()
 			    .getCssReferences()
 			    .add(theme.getCssReference());

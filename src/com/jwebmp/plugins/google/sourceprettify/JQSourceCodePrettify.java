@@ -18,8 +18,8 @@ package com.jwebmp.plugins.google.sourceprettify;
 
 import com.jwebmp.base.html.PreFormattedText;
 import com.jwebmp.base.html.interfaces.GlobalChildren;
+import com.jwebmp.logger.LogFactory;
 import com.jwebmp.plugins.ComponentInformation;
-import za.co.mmagon.logger.LogFactory;
 
 import javax.validation.constraints.NotNull;
 
@@ -155,14 +155,14 @@ public class JQSourceCodePrettify<J extends JQSourceCodePrettify<J>>
 	}
 
 	@Override
-	public int hashCode()
-	{
-		return super.hashCode();
-	}
-
-	@Override
 	public boolean equals(Object o)
 	{
 		return super.equals(o);
+	}
+
+	@Override
+	public int hashCode()
+	{
+		return super.hashCode();
 	}
 }

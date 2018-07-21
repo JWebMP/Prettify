@@ -16,10 +16,10 @@
  */
 package com.jwebmp.plugins.google.sourceprettify;
 
-import com.jwebmp.Page;
-import com.jwebmp.PageConfigurator;
-import com.jwebmp.base.references.JavascriptReference;
-import com.jwebmp.plugins.PluginInformation;
+import com.jwebmp.core.Page;
+import com.jwebmp.core.PageConfigurator;
+import com.jwebmp.core.base.references.JavascriptReference;
+import com.jwebmp.core.plugins.PluginInformation;
 
 /**
  * @author GedMarc

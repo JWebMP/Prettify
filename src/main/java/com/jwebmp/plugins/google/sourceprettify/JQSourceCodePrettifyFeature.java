@@ -16,9 +16,9 @@
  */
 package com.jwebmp.plugins.google.sourceprettify;
 
-import com.jwebmp.Feature;
-import com.jwebmp.base.html.interfaces.GlobalFeatures;
-import com.jwebmp.htmlbuilder.javascript.JavaScriptPart;
+import com.jwebmp.core.Feature;
+import com.jwebmp.core.base.html.interfaces.GlobalFeatures;
+import com.jwebmp.core.htmlbuilder.javascript.JavaScriptPart;
 
 /**
  * Implements the Google Prettify-It JQuery class

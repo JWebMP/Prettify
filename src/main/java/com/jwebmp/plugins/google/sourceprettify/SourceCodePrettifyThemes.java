@@ -16,8 +16,8 @@
  */
 package com.jwebmp.plugins.google.sourceprettify;
 
-import com.jwebmp.base.references.CSSReference;
-import com.jwebmp.utilities.TextUtilities;
+import com.jwebmp.core.base.references.CSSReference;
+import com.jwebmp.core.utilities.TextUtilities;
 
 /**
  * /**

@@ -16,10 +16,10 @@
  */
 package com.jwebmp.plugins.google.sourceprettify;
 
-import com.jwebmp.base.html.PreFormattedText;
-import com.jwebmp.base.html.interfaces.GlobalChildren;
+import com.jwebmp.core.base.html.PreFormattedText;
+import com.jwebmp.core.base.html.interfaces.GlobalChildren;
+import com.jwebmp.core.plugins.ComponentInformation;
 import com.jwebmp.logger.LogFactory;
-import com.jwebmp.plugins.ComponentInformation;
 
 import javax.validation.constraints.NotNull;
 

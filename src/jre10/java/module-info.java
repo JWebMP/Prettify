@@ -1,3 +1,6 @@
+import com.jwebmp.core.services.IPageConfigurator;
+import com.jwebmp.plugins.google.sourceprettify.JQSourceCodePrettifyPageConfigurator;
+
 module com.jwebmp.plugins.google.sourceprettify {
 	exports com.jwebmp.plugins.google.sourceprettify;
 
@@ -7,4 +10,7 @@ module com.jwebmp.plugins.google.sourceprettify {
 
 	requires java.validation;
 	requires java.logging;
+
+	provides IPageConfigurator with JQSourceCodePrettifyPageConfigurator;
+
 }

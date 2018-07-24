@@ -12,5 +12,5 @@ module com.jwebmp.plugins.google.sourceprettify {
 	requires java.logging;
 
 	provides IPageConfigurator with JQSourceCodePrettifyPageConfigurator;
-
+	opens com.jwebmp.plugins.google.sourceprettify to com.fasterxml.jackson.databind, com.jwebmp.core;
 }

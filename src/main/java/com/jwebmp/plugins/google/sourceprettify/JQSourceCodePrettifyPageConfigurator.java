@@ -21,6 +21,8 @@ import com.jwebmp.core.base.references.JavascriptReference;
 import com.jwebmp.core.plugins.PluginInformation;
 import com.jwebmp.core.services.IPageConfigurator;
 
+import javax.validation.constraints.NotNull;
+
 /**
  * @author GedMarc
  * @since 26 Feb 2017
@@ -61,6 +63,7 @@ public class JQSourceCodePrettifyPageConfigurator
 		JQSourceCodePrettifyPageConfigurator.theme = theme;
 	}
 
+	@NotNull
 	@Override
 	public Page configure(Page<?> page)
 	{

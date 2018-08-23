@@ -17,7 +17,6 @@
 package com.jwebmp.plugins.google.sourceprettify;
 
 import com.jwebmp.core.Feature;
-import com.jwebmp.core.base.html.interfaces.GlobalFeatures;
 import com.jwebmp.core.htmlbuilder.javascript.JavaScriptPart;
 
 /**
@@ -27,8 +26,7 @@ import com.jwebmp.core.htmlbuilder.javascript.JavaScriptPart;
  * @since 2014/06/06
  */
 public class JQSourceCodePrettifyFeature
-		extends Feature<JavaScriptPart, JQSourceCodePrettifyFeature>
-		implements GlobalFeatures
+		extends Feature<JQSourceCodePrettifyFeature, JavaScriptPart, JQSourceCodePrettifyFeature>
 {
 
 	private static final long serialVersionUID = 1L;

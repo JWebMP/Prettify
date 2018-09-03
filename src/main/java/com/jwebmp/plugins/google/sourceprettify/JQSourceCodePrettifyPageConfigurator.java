@@ -46,6 +46,10 @@ import javax.validation.constraints.NotNull;
 public class JQSourceCodePrettifyPageConfigurator
 		implements IPageConfigurator
 {
+	/**
+	 * If this configurator is enabled
+	 */
+	private static boolean enabled = true;
 	private static SourceCodePrettifyThemes theme = SourceCodePrettifyThemes.Default;
 
 	public JQSourceCodePrettifyPageConfigurator()
@@ -53,9 +57,34 @@ public class JQSourceCodePrettifyPageConfigurator
 		//No config needed
 	}
 
+	/**
+	 * Method isEnabled returns the enabled of this AngularAnimatedChangePageConfigurator object.
+	 * <p>
+	 * If this configurator is enabled
+	 *
+	 * @return the enabled (type boolean) of this AngularAnimatedChangePageConfigurator object.
+	 */
+	public static boolean isEnabled()
+	{
+		return JQSourceCodePrettifyPageConfigurator.enabled;
+	}
+
+	/**
+	 * Method setEnabled sets the enabled of this AngularAnimatedChangePageConfigurator object.
+	 * <p>
+	 * If this configurator is enabled
+	 *
+	 * @param mustEnable
+	 * 		the enabled of this AngularAnimatedChangePageConfigurator object.
+	 */
+	public static void setEnabled(boolean mustEnable)
+	{
+		JQSourceCodePrettifyPageConfigurator.enabled = mustEnable;
+	}
+
 	public static SourceCodePrettifyThemes getTheme()
 	{
-		return theme;
+		return JQSourceCodePrettifyPageConfigurator.theme;
 	}
 
 	public static void setTheme(SourceCodePrettifyThemes theme)
@@ -74,8 +103,14 @@ public class JQSourceCodePrettifyPageConfigurator
 			    .add(new JavascriptReference("JQueryPrettify", 1.0, "bower_components/google-code-prettify/src/prettify.min.js"));
 			page.getBody()
 			    .getCssReferences()
-			    .add(theme.getCssReference());
+			    .add(JQSourceCodePrettifyPageConfigurator.theme.getCssReference());
 		}
 		return page;
+	}
+
+	@Override
+	public boolean enabled()
+	{
+		return JQSourceCodePrettifyPageConfigurator.enabled;
 	}
 }

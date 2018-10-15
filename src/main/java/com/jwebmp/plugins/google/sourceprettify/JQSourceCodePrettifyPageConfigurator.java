@@ -34,9 +34,9 @@ import javax.validation.constraints.NotNull;
 		pluginDependancyUniqueIDs = "",
 		pluginCategories = "code, highlight, source",
 		pluginSubtitle = "A Javascript module and CSS file that allows syntax highlighting of source code snippets in an html page.",
-		pluginGitUrl = "https://github.com/GedMarc/JWebSwing-GoogleSourceCodePrettifyPlugin",
+		pluginGitUrl = "https://github.com/GedMarc/JWebMP-GoogleSourceCodePrettifyPlugin",
 		pluginSourceUrl = "https://github.com/google/code-prettify",
-		pluginWikiUrl = "https://github.com/GedMarc/JWebSwing-GoogleSourceCodePrettifyPlugin/wiki",
+		pluginWikiUrl = "https://github.com/GedMarc/JWebMP-GoogleSourceCodePrettifyPlugin/wiki",
 		pluginOriginalHomepage = "https://github.com/google/code-prettify",
 		pluginDownloadUrl = "https://sourceforge.net/projects/jwebswing/files/plugins/GoogleSourceCodePrettifyPlugin.jar/download",
 		pluginIconUrl = "bower_components/google-code-prettify/icon.gif",
@@ -44,7 +44,7 @@ import javax.validation.constraints.NotNull;
 		pluginLastUpdatedDate = "2017/03/04")
 @SuppressWarnings("unused")
 public class JQSourceCodePrettifyPageConfigurator
-		implements IPageConfigurator
+		implements IPageConfigurator<JQSourceCodePrettifyPageConfigurator>
 {
 	/**
 	 * If this configurator is enabled

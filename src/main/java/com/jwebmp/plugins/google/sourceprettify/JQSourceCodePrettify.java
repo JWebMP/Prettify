@@ -43,7 +43,7 @@ public class JQSourceCodePrettify<J extends JQSourceCodePrettify<J>>
 	private static final java.util.logging.Logger log = LogFactory.getInstance()
 	                                                              .getLogger("SourceCodePrettify");
 	private static final String rootSource = "/";
-	private static final long serialVersionUID = 1L;
+
 	private final JQSourceCodePrettifyFeature feature = new JQSourceCodePrettifyFeature(this);
 	private SourceCodeLanguages sourceCodeLanguage = SourceCodeLanguages.Java;
 	private SourceCodePrettifyThemes sourceCodePrettifyTheme = SourceCodePrettifyThemes.Default;
@@ -155,14 +155,14 @@ public class JQSourceCodePrettify<J extends JQSourceCodePrettify<J>>
 	}
 
 	@Override
-	public boolean equals(Object o)
-	{
-		return super.equals(o);
-	}
-
-	@Override
 	public int hashCode()
 	{
 		return super.hashCode();
+	}
+
+	@Override
+	public boolean equals(Object o)
+	{
+		return super.equals(o);
 	}
 }

@@ -29,7 +29,6 @@ public class JQSourceCodePrettifyFeature
 		extends Feature<JQSourceCodePrettifyFeature, JavaScriptPart, JQSourceCodePrettifyFeature>
 {
 
-	private static final long serialVersionUID = 1L;
 
 	/**
 	 * Constructs a source code displayer with the given PRE tag.

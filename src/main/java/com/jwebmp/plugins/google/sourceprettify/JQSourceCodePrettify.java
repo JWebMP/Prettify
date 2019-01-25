@@ -19,7 +19,6 @@ package com.jwebmp.plugins.google.sourceprettify;
 import com.jwebmp.core.base.html.PreFormattedText;
 import com.jwebmp.core.base.html.interfaces.GlobalChildren;
 import com.jwebmp.core.plugins.ComponentInformation;
-import com.jwebmp.logger.LogFactory;
 
 import javax.validation.constraints.NotNull;
 
@@ -39,11 +38,6 @@ public class JQSourceCodePrettify<J extends JQSourceCodePrettify<J>>
 		extends PreFormattedText<J>
 		implements GlobalChildren
 {
-
-	private static final java.util.logging.Logger log = LogFactory.getInstance()
-	                                                              .getLogger("SourceCodePrettify");
-	private static final String rootSource = "/";
-
 	private final JQSourceCodePrettifyFeature feature = new JQSourceCodePrettifyFeature(this);
 	private SourceCodeLanguages sourceCodeLanguage = SourceCodeLanguages.Java;
 	private SourceCodePrettifyThemes sourceCodePrettifyTheme = SourceCodePrettifyThemes.Default;

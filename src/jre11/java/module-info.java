@@ -1,9 +1,3 @@
-import com.jwebmp.core.services.IPageConfigurator;
-import com.jwebmp.guicedinjection.interfaces.IGuiceScanJarExclusions;
-import com.jwebmp.guicedinjection.interfaces.IGuiceScanModuleExclusions;
-import com.jwebmp.plugins.google.sourceprettify.JQSourceCodePrettifyPageConfigurator;
-import com.jwebmp.plugins.google.sourceprettify.implementations.GoogleSourceCodePrettifyExclusionsModule;
-
 module com.jwebmp.plugins.google.sourceprettify {
 	exports com.jwebmp.plugins.google.sourceprettify;
 
@@ -15,9 +9,9 @@ module com.jwebmp.plugins.google.sourceprettify {
 	requires java.logging;
 	requires com.jwebmp.guicedinjection;
 
-	provides IPageConfigurator with JQSourceCodePrettifyPageConfigurator;
-	provides IGuiceScanJarExclusions with GoogleSourceCodePrettifyExclusionsModule;
-	provides IGuiceScanModuleExclusions with GoogleSourceCodePrettifyExclusionsModule;
+	provides com.jwebmp.core.services.IPageConfigurator with com.jwebmp.plugins.google.sourceprettify.JQSourceCodePrettifyPageConfigurator;
+	provides com.jwebmp.guicedinjection.interfaces.IGuiceScanJarExclusions with com.jwebmp.plugins.google.sourceprettify.implementations.GoogleSourceCodePrettifyExclusionsModule;
+	provides com.jwebmp.guicedinjection.interfaces.IGuiceScanModuleExclusions with com.jwebmp.plugins.google.sourceprettify.implementations.GoogleSourceCodePrettifyExclusionsModule;
 
 	opens com.jwebmp.plugins.google.sourceprettify to com.fasterxml.jackson.databind, com.jwebmp.core;
 }

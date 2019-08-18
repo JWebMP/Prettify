@@ -38,6 +38,7 @@ public class JQSourceCodePrettify<J extends JQSourceCodePrettify<J>>
 		extends PreFormattedText<J>
 		implements GlobalChildren
 {
+	@SuppressWarnings("FieldCanBeLocal")
 	private final JQSourceCodePrettifyFeature feature = new JQSourceCodePrettifyFeature(this);
 	private SourceCodeLanguages sourceCodeLanguage = SourceCodeLanguages.Java;
 	private SourceCodePrettifyThemes sourceCodePrettifyTheme = SourceCodePrettifyThemes.Default;
@@ -114,6 +115,7 @@ public class JQSourceCodePrettify<J extends JQSourceCodePrettify<J>>
 	 *
 	 * @return
 	 */
+	@SuppressWarnings("unchecked")
 	public J setShowLineNums(boolean showLineNums)
 	{
 		this.showLineNums = showLineNums;

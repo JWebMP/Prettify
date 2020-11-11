@@ -20,7 +20,7 @@ import com.jwebmp.core.base.html.PreFormattedText;
 import com.jwebmp.core.base.html.interfaces.GlobalChildren;
 import com.jwebmp.core.plugins.ComponentInformation;
 
-import javax.validation.constraints.NotNull;
+import jakarta.validation.constraints.NotNull;
 
 /**
  * Implements the Google Code Prettify JavaScript

@@ -26,7 +26,7 @@ import com.jwebmp.core.htmlbuilder.javascript.JavaScriptPart;
  * @since 2014/06/06
  */
 public class JQSourceCodePrettifyFeature
-		extends Feature<JQSourceCodePrettifyFeature, JavaScriptPart, JQSourceCodePrettifyFeature>
+		extends Feature<JQSourceCodePrettifyFeature, JavaScriptPart<?>, JQSourceCodePrettifyFeature>
 {
 
 
@@ -36,7 +36,7 @@ public class JQSourceCodePrettifyFeature
 	 *
 	 * @param comp
 	 */
-	public JQSourceCodePrettifyFeature(JQSourceCodePrettify comp)
+	public JQSourceCodePrettifyFeature(JQSourceCodePrettify<?> comp)
 	{
 		super("JWSourceCodePrettify");
 		setComponent(comp);

@@ -38,10 +38,12 @@ import jakarta.validation.constraints.NotNull;
 		pluginSourceUrl = "https://github.com/google/code-prettify",
 		pluginWikiUrl = "https://github.com/GedMarc/JWebMP-GoogleSourceCodePrettifyPlugin/wiki",
 		pluginOriginalHomepage = "https://github.com/google/code-prettify",
-		pluginDownloadUrl = "https://sourceforge.net/projects/jwebswing/files/plugins/GoogleSourceCodePrettifyPlugin.jar/download",
-		pluginIconUrl = "bower_components/google-code-prettify/icon.gif",
-		pluginIconImageUrl = "bower_components/google-code-prettify/google_prettify_example.jpg",
-		pluginLastUpdatedDate = "2017/03/04")
+		pluginDownloadUrl = "https://mvnrepository.com/artifact/com.jwebmp.plugins.javascript/jwebmp-source-prettify",
+		pluginIconUrl = "",
+		pluginIconImageUrl = "",
+		pluginLastUpdatedDate = "2017/03/04"
+		
+)
 @SuppressWarnings("unused")
 public class JQSourceCodePrettifyPageConfigurator
 		implements IPageConfigurator<JQSourceCodePrettifyPageConfigurator>
@@ -100,7 +102,7 @@ public class JQSourceCodePrettifyPageConfigurator
 		{
 			page.getBody()
 			    .getJavascriptReferences()
-			    .add(new JavascriptReference("JQueryPrettify", 1.0, "bower_components/google-code-prettify/src/prettify.min.js"));
+			    .add(new JavascriptReference("JQueryPrettify", 1.92, "bower_components/google-code-prettify/src/prettify.min.js"));
 			page.getBody()
 			    .getCssReferences()
 			    .add(JQSourceCodePrettifyPageConfigurator.theme.getCssReference());

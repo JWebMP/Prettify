@@ -25,26 +25,26 @@ import com.jwebmp.core.htmlbuilder.javascript.JavaScriptPart;
  * @author mmagon
  * @since 2014/06/06
  */
-public class JQSourceCodePrettifyFeature
-		extends Feature<JQSourceCodePrettifyFeature, JavaScriptPart<?>, JQSourceCodePrettifyFeature>
+public class PrettifyFeature
+        extends Feature<PrettifyFeature, JavaScriptPart<?>, PrettifyFeature>
 {
 
 
-	/**
-	 * Constructs a source code displayer with the given PRE tag.
-	 * <p>
-	 *
-	 * @param comp
-	 */
-	public JQSourceCodePrettifyFeature(JQSourceCodePrettify<?> comp)
-	{
-		super("JWSourceCodePrettify");
-		setComponent(comp);
-	}
+    /**
+     * Constructs a source code displayer with the given PRE tag.
+     * <p>
+     *
+     * @param comp
+     */
+    public PrettifyFeature(Prettify<?> comp)
+    {
+        super("JWSourceCodePrettify");
+        setComponent(comp);
+    }
 
-	@Override
-	public void assignFunctionsToComponent()
-	{
-		addQuery("prettyPrint();" + getNewLine());
-	}
+    @Override
+    public void assignFunctionsToComponent()
+    {
+        addQuery("prettyPrint();" + getNewLine());
+    }
 }

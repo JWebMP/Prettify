@@ -9,7 +9,6 @@ module com.jwebmp.plugins.prettify {
 
     requires jakarta.validation;
     requires java.logging;
-    requires com.guicedee.guicedinjection;
 
     provides com.jwebmp.core.services.IPageConfigurator with PrettifyPageConfigurator;
     provides com.guicedee.guicedinjection.interfaces.IGuiceScanModuleExclusions with com.jwebmp.plugins.google.sourceprettify.implementations.GoogleSourceCodePrettifyExclusionsModule;

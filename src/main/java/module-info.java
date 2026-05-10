@@ -6,13 +6,12 @@ module com.jwebmp.plugins.prettify {
 
     requires com.jwebmp.core;
     requires com.jwebmp.client;
-
-    requires jakarta.validation;
-    requires java.logging;
+    requires com.jwebmp.core.base.angular.client;
 
     provides com.jwebmp.core.services.IPageConfigurator with PrettifyPageConfigurator;
-    provides com.guicedee.guicedinjection.interfaces.IGuiceScanModuleExclusions with com.jwebmp.plugins.google.sourceprettify.implementations.GoogleSourceCodePrettifyExclusionsModule;
-    provides com.guicedee.guicedinjection.interfaces.IGuiceScanModuleInclusions with GoogleCodePrettifyModuleInclusion;
+    provides com.guicedee.client.services.config.IGuiceScanModuleExclusions with com.jwebmp.plugins.google.sourceprettify.implementations.GoogleSourceCodePrettifyExclusionsModule;
+    provides com.guicedee.client.services.config.IGuiceScanModuleInclusions with GoogleCodePrettifyModuleInclusion;
 
-    opens com.jwebmp.plugins.google.sourceprettify to com.fasterxml.jackson.databind, com.jwebmp.core;
+    opens com.jwebmp.plugins.google.sourceprettify to com.fasterxml.jackson.databind, com.jwebmp.core, com.google.guice, com.jwebmp.core.angular;
+    opens com.jwebmp.plugins.google.sourceprettify.implementations to com.fasterxml.jackson.databind, com.jwebmp.core, com.google.guice, com.jwebmp.core.angular;
 }

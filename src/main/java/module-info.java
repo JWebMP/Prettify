@@ -12,6 +12,6 @@ module com.jwebmp.plugins.prettify {
     provides com.guicedee.client.services.config.IGuiceScanModuleExclusions with com.jwebmp.plugins.google.sourceprettify.implementations.GoogleSourceCodePrettifyExclusionsModule;
     provides com.guicedee.client.services.config.IGuiceScanModuleInclusions with GoogleCodePrettifyModuleInclusion;
 
-    opens com.jwebmp.plugins.google.sourceprettify to com.fasterxml.jackson.databind, com.jwebmp.core, com.google.guice, com.jwebmp.core.angular;
-    opens com.jwebmp.plugins.google.sourceprettify.implementations to com.fasterxml.jackson.databind, com.jwebmp.core, com.google.guice, com.jwebmp.core.angular;
+    opens com.jwebmp.plugins.google.sourceprettify to tools.jackson.databind, com.jwebmp.core, com.google.guice, com.jwebmp.core.angular;
+    opens com.jwebmp.plugins.google.sourceprettify.implementations to tools.jackson.databind, com.jwebmp.core, com.google.guice, com.jwebmp.core.angular;
 }
